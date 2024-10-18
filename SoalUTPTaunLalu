@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Sikma {
+    public static void main(String[] args) {
+        Scanner braws = new Scanner (System.in);
+        int time = braws.nextInt();
+        double jarak = braws.nextDouble();
+        double met = 0;
+        double hours = time/3600;
+
+        int jam = time/3600;
+        int menit = (time%3600)/60;
+        int detik = time%60;
+
+
+        double speed = Math.round(jarak/jam) ;
+
+        if (speed == 5) {
+            met = 8.3;
+        } else if (speed == 6){
+            met = 9.8;
+        } else if (speed == 7){
+            met = 11.0;
+        } else if (speed >= 8){
+            met = 11.8;
+        } else {
+            met = 6;
+        }
+
+        double kalori = Math.round(50*hours*met);
+
+        System.out.println(hours);
+        System.out.printf("%02d:%02d:%02d \n", jam, menit, detik);
+        System.out.printf("%.0f",kalori);
+
+    }
+}
